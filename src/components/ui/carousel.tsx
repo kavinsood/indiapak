@@ -1,6 +1,7 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
+import Image from "next/image";
 
 interface SlideData {
   title: string;
@@ -90,7 +91,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
                 : "none",
           }}
         >
-          <img
+          <Image
             className="absolute inset-0 w-[120%] h-[120%] object-cover opacity-100 transition-opacity duration-600 ease-in-out"
             style={{
               opacity: current === index ? 1 : 0.5,
@@ -99,7 +100,8 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             src={src}
             onLoad={imageLoaded}
             loading="eager"
-            decoding="sync"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {current === index && (
             <div className="absolute inset-0 bg-black/30 transition-all duration-1000" />
@@ -138,13 +140,13 @@ const CarouselControl = ({
 }: CarouselControlProps) => {
   return (
     <button
-      className={`w-10 h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none hover:-translate-y-0.5 active:translate-y-0.5 transition duration-200 ${
+      className={`w-12 h-12 sm:w-10 sm:h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none hover:-translate-y-0.5 active:translate-y-0.5 transition duration-200 touch-manipulation ${
         type === "previous" ? "rotate-180" : ""
       }`}
       title={title}
       onClick={handleClick}
     >
-      <IconArrowNarrowRight className="text-neutral-600 dark:text-neutral-200" />
+      <IconArrowNarrowRight className="text-neutral-600 dark:text-neutral-200 w-5 h-5 sm:w-4 sm:h-4" />
     </button>
   );
 };
@@ -196,7 +198,7 @@ export default function Carousel({ slides }: CarouselProps) {
         ))}
       </ul>
 
-      <div className="absolute flex justify-center w-full top-[calc(100%+1rem)]">
+      <div className="absolute flex justify-center w-full top-[calc(100%-4rem)] sm:top-[calc(100%+1rem)] z-40">
         <CarouselControl
           type="previous"
           title="Go to previous slide"

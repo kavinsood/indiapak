@@ -27,7 +27,9 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/military", icon: "/jet.png", label: "Military Operations" },
+    { href: "/nuclear", icon: "/radioactive.png", label: "Nuclear" },
+    { href: "/about", icon: "/user.png", label: "About us" },
   ],
   contact: {
     email: "hello@example.com",
@@ -38,27 +40,27 @@ export const DATA = {
         url: "https://dub.sh/dillion-github",
         icon: Icons.github,
 
-        navbar: true,
+        navbar: false,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://dub.sh/dillion-linkedin",
         icon: Icons.linkedin,
 
-        navbar: true,
+        navbar: false,
       },
       X: {
         name: "X",
         url: "https://dub.sh/dillion-twitter",
         icon: Icons.x,
 
-        navbar: true,
+        navbar: false,
       },
       Youtube: {
         name: "Youtube",
         url: "https://dub.sh/dillion-youtube",
         icon: Icons.youtube,
-        navbar: true,
+        navbar: false,
       },
       email: {
         name: "Send Email",

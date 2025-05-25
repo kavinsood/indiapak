@@ -46,4 +46,6 @@ alwaysApply: true
    - Commit only when tests pass and functionality is self-contained.
    - Use `git rm <file>` for tracked file deletion.
 
+Note: use pnpm instead of npm, don't create a new dev server, assume one is already running.
+
 *Note: TaskMaster handles comprehensive workflow, task management, and project setup. These rules focus on code quality and standards.*
