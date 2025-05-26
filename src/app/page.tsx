@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
@@ -26,10 +25,6 @@ const carouselSlides = [
 ];
 
 export default function Page() {
-  const pathname = usePathname();
-  const router = useRouter();
-  const isHomePage = pathname === "/";
-
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -54,32 +49,12 @@ export default function Page() {
               </div>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
-              {isHomePage ? (
-                <Link
-                  href="/about"
-                  className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
-                >
-                  About
-                </Link>
-              ) : (
-                <button
-                  onClick={() => router.back()}
-                  className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2 flex items-center"
-                  aria-label="Go back"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    className="w-5 h-5 mr-1"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                  </svg>
-                  Back
-                </button>
-              )}
+              <Link
+                href="/about"
+                className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
+              >
+                About
+              </Link>
             </BlurFade>
           </div>
         </div>

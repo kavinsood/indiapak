@@ -19,7 +19,7 @@ const AboutCards = () => {
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center bg-background w-full gap-8 mx-auto max-w-6xl">
-      <Card title="Vagdev Tirunagari" icon={<Image src="/user.png" alt="Vagdev Tirunagari" width={40} height={40} className="rounded-full object-cover dark:invert" />}>
+      <Card title="Vagdev Tirunagari" icon={<Image src="/user.png" alt="Vagdev Tirunagari" width={40} height={40} className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100" />}>
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -28,7 +28,7 @@ const AboutCards = () => {
         )}
       </Card>
       
-      <Card title="Sonar, Supergrok and 2.5 billion people" icon={<Image src="/user.png" alt="Sonar and Supergrok" width={40} height={40} className="rounded-full object-cover dark:invert" />}>
+      <Card title="Sonar, Supergrok and 2.5 billion people" icon={<Image src="/user.png" alt="Sonar and Supergrok" width={40} height={40} className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100" />}>
         {isMounted && (
           <>
             <CanvasRevealEffect
@@ -46,7 +46,7 @@ const AboutCards = () => {
         )}
       </Card>
       
-      <Card title="Kavin Sood" icon={<Image src="/user.png" alt="Kavin Sood" width={40} height={40} className="rounded-full object-cover dark:invert" />}>
+      <Card title="Kavin Sood" icon={<Image src="/user.png" alt="Kavin Sood" width={40} height={40} className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100" />}>
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={3}
@@ -73,7 +73,7 @@ const Card = ({
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem] rounded-lg"
+      className="border border-black/[0.2] group/canvas-card flex items-start justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem] rounded-lg"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
@@ -92,8 +92,8 @@ const Card = ({
         )}
       </AnimatePresence>
 
-      <div className="relative z-20">
-        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center">
+      <div className="relative z-20 pt-32">
+        <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center h-[40px]">
           {icon}
         </div>
         <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center">

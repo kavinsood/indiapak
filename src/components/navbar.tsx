@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname, useRouter } from "next/navigation";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
@@ -11,36 +14,85 @@ import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowLeftIcon } from "lucide-react";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === "/";
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 flex justify-center mb-4">
       <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
       <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        {DATA.navbar.map((item) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
-                  )}
-                >
-                  {typeof item.icon === "string" ? (
-                    <Image src={item.icon} alt={item.label} width={16} height={16} className="dark:invert" />
-                  ) : (
-                    <item.icon className="size-4" />
-                  )}
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
+        {DATA.navbar.map((item, index) => {
+          // First item is the home button - make it conditional
+          if (index === 0) {
+            return (
+              <DockIcon key={item.href}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    {isHomePage ? (
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "icon" }),
+                          "size-12"
+                        )}
+                      >
+                        {typeof item.icon === "string" ? (
+                          <Image src={item.icon} alt={item.label} width={16} height={16} className="dark:invert" />
+                        ) : (
+                          <item.icon className="size-4" />
+                        )}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => router.back()}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "icon" }),
+                          "size-12"
+                        )}
+                        aria-label="Go back"
+                      >
+                        <ArrowLeftIcon className="size-4" />
+                      </button>
+                    )}
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{isHomePage ? item.label : "Back"}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            );
+          }
+          
+          // Render other navbar items normally
+          return (
+            <DockIcon key={item.href}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12"
+                    )}
+                  >
+                    {typeof item.icon === "string" ? (
+                      <Image src={item.icon} alt={item.label} width={16} height={16} className="dark:invert" />
+                    ) : (
+                      <item.icon className="size-4" />
+                    )}
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          );
+        })}
         {Object.entries(DATA.contact.social)
           .filter(([_, social]) => social.navbar)
           .map(([name, social]) => (

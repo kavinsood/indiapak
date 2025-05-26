@@ -25,13 +25,13 @@ export default function AboutPage() {
       <section id="hero" className="pt-8">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <BlurFade delay={BLUR_FADE_DELAY}>
-            <div className="text-center">
+            <div className="text-left">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter mb-12">
                 <LineShadowText 
                   className="text-foreground"
                   shadowColor="#666"
                 >
-                  About
+                  about
                 </LineShadowText>
               </div>
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
