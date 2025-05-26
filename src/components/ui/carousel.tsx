@@ -181,22 +181,24 @@ export default function Carousel({ slides }: CarouselProps) {
       className="relative w-[70vmin] h-[70vmin] mx-auto"
       aria-labelledby={`carousel-heading-${id}`}
     >
-      <ul
-        className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateX(-${current * (100 / slides.length)}%)`,
-        }}
-      >
-        {slides.map((slide, index) => (
-          <Slide
-            key={index}
-            slide={slide}
-            index={index}
-            current={current}
-            handleSlideClick={handleSlideClick}
-          />
-        ))}
-      </ul>
+      <div className="relative w-full h-full overflow-hidden sm:overflow-visible">
+        <ul
+          className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
+          style={{
+            transform: `translateX(-${current * (100 / slides.length)}%)`,
+          }}
+        >
+          {slides.map((slide, index) => (
+            <Slide
+              key={index}
+              slide={slide}
+              index={index}
+              current={current}
+              handleSlideClick={handleSlideClick}
+            />
+          ))}
+        </ul>
+      </div>
 
       <div className="absolute flex justify-center w-full top-[calc(100%-4rem)] sm:top-[calc(100%+1rem)] z-40">
         <CarouselControl
