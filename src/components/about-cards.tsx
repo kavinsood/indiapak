@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 // Dynamically import CanvasRevealEffect with no SSR
 const CanvasRevealEffect = dynamic(
@@ -18,7 +19,7 @@ const AboutCards = () => {
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center bg-background w-full gap-8 mx-auto max-w-6xl">
-      <Card title="Vagdev Tirunagari" icon={<img src="/user.png" alt="Vagdev Tirunagari" className="h-10 w-10 rounded-full object-cover dark:invert" />}>
+      <Card title="Vagdev Tirunagari" icon={<Image src="/user.png" alt="Vagdev Tirunagari" width={40} height={40} className="rounded-full object-cover dark:invert" />}>
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -27,7 +28,7 @@ const AboutCards = () => {
         )}
       </Card>
       
-      <Card title="Sonar, Supergrok and 2.5 billion people" icon={<img src="/user.png" alt="Sonar and Supergrok" className="h-10 w-10 rounded-full object-cover dark:invert" />}>
+      <Card title="Sonar, Supergrok and 2.5 billion people" icon={<Image src="/user.png" alt="Sonar and Supergrok" width={40} height={40} className="rounded-full object-cover dark:invert" />}>
         {isMounted && (
           <>
             <CanvasRevealEffect
@@ -45,7 +46,7 @@ const AboutCards = () => {
         )}
       </Card>
       
-      <Card title="Kavin Sood" icon={<img src="/user.png" alt="Kavin Sood" className="h-10 w-10 rounded-full object-cover dark:invert" />}>
+      <Card title="Kavin Sood" icon={<Image src="/user.png" alt="Kavin Sood" width={40} height={40} className="rounded-full object-cover dark:invert" />}>
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={3}

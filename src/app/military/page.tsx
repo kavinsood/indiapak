@@ -37,7 +37,7 @@ export default function MilitaryOperationsPage() {
 
       {/* Lower Section - Operation Bunyam-Um-Marsoos with Background Lines */}
       <section className="relative flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-8">
-        <BackgroundLines className="absolute inset-0 z-0" children={<></>} />
+        <BackgroundLines className="absolute inset-0 z-0">{null}</BackgroundLines>
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <div className="relative z-10 text-center max-w-2xl mx-auto">
             <h1 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-2">

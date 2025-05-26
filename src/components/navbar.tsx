@@ -10,6 +10,7 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -28,7 +29,7 @@ export default function Navbar() {
                   )}
                 >
                   {typeof item.icon === "string" ? (
-                    <img src={item.icon} alt={item.label} className="size-4 dark:invert" />
+                    <Image src={item.icon} alt={item.label} width={16} height={16} className="dark:invert" />
                   ) : (
                     <item.icon className="size-4" />
                   )}
