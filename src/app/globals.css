@@ -77,6 +77,11 @@
     body {
       @apply bg-background text-foreground;
     }
+
+    /* Hide default cursor globally when custom cursor is active */
+    *, *:hover, *:focus, *:active {
+      cursor: none !important;
+    }
   }
 
   h3 code {
@@ -147,26 +152,16 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
 
-@theme inline {
-  @keyframes line-shadow {
-  0% {
-    background-position: 0 0;
-        }
-  100% {
-    background-position: 100% -100%;
-        }
-    }
-  @keyframes meteor {
+@keyframes meteor {
   0% {
     transform: rotate(var(--angle)) translateX(0);
     opacity: 1;
-        }
+  }
   70% {
     opacity: 1;
-        }
+  }
   100% {
     transform: rotate(var(--angle)) translateX(-500px);
     opacity: 0;
-        }
-    }
+  }
 }

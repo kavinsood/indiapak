@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
@@ -25,6 +26,10 @@ const carouselSlides = [
 ];
 
 export default function Page() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === "/";
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -49,12 +54,32 @@ export default function Page() {
               </div>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
-              <Link 
-                href="/about" 
-                className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
-              >
-                About Us
-              </Link>
+              {isHomePage ? (
+                <Link
+                  href="/about"
+                  className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
+                >
+                  About
+                </Link>
+              ) : (
+                <button
+                  onClick={() => router.back()}
+                  className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2 flex items-center"
+                  aria-label="Go back"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-5 h-5 mr-1"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                  Back
+                </button>
+              )}
             </BlurFade>
           </div>
         </div>
@@ -62,7 +87,7 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-xl font-bold">Govt Released Documents</h2>
+            <h2 className="text-xl font-bold">Officially Released Documents</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
@@ -87,7 +112,7 @@ export default function Page() {
       <section id="carousel" className="py-10">
         <div className="flex min-h-0 flex-col gap-y-8">
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <h2 className="text-xl font-bold text-center">Look at the war</h2>
+            <h2 className="text-xl font-bold">Look at the war</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <div className="flex justify-center">
@@ -101,9 +126,9 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <div className="flex items-center space-x-4">
               <p className="text-4xl font-bold">
-                <NumberTicker value={177} />
+                <NumberTicker value={203} />
               </p>
-              <p className="text-2xl text-muted-foreground">lives lost</p>
+              <p className="text-2xl text-muted-foreground">Lives lost</p>
             </div>
           </BlurFade>
         </div>

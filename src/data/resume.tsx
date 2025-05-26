@@ -29,7 +29,7 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/military", icon: "/jet.png", label: "Military Operations" },
     { href: "/nuclear", icon: "/radioactive.png", label: "Nuclear" },
-    { href: "/about", icon: "/user.png", label: "About us" },
+    { href: "/about", icon: "/user.png", label: "About" },
   ],
   contact: {
     email: "hello@example.com",

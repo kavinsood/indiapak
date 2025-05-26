@@ -26,24 +26,16 @@ export default function AboutPage() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <BlurFade delay={BLUR_FADE_DELAY}>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter mb-8">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter mb-12">
                 <LineShadowText 
                   className="text-foreground"
                   shadowColor="#666"
                 >
                   About
                 </LineShadowText>
-                <LineShadowText 
-                  className="text-green-500 ml-3"
-                  shadowColor="#22c55e"
-                >
-                  Us
-                </LineShadowText>
               </div>
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  indiapak.live is an intricate analysis and visualisation project made for information and insights.
-                </p>
+                <h2 className="text-xl font-bold text-left px-4 sm:px-8 lg:px-12">indiapak.live is an intricate analysis and visualisation project made for information and insights.</h2>
               </BlurFade>
             </div>
           </BlurFade>

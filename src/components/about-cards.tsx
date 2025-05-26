@@ -18,7 +18,7 @@ const AboutCards = () => {
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center bg-background w-full gap-8 mx-auto max-w-6xl">
-      <Card title="vagdev" icon={<AceternityIcon />}>
+      <Card title="Vagdev Tirunagari" icon={<img src="/user.png" alt="Vagdev Tirunagari" className="h-10 w-10 rounded-full object-cover dark:invert" />}>
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -27,7 +27,7 @@ const AboutCards = () => {
         )}
       </Card>
       
-      <Card title="ai disclaimer" icon={<AceternityIcon />}>
+      <Card title="Sonar, Supergrok and 2.5 billion people" icon={<img src="/user.png" alt="Sonar and Supergrok" className="h-10 w-10 rounded-full object-cover dark:invert" />}>
         {isMounted && (
           <>
             <CanvasRevealEffect
@@ -45,7 +45,7 @@ const AboutCards = () => {
         )}
       </Card>
       
-      <Card title="kavin" icon={<AceternityIcon />}>
+      <Card title="Kavin Sood" icon={<img src="/user.png" alt="Kavin Sood" className="h-10 w-10 rounded-full object-cover dark:invert" />}>
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={3}
@@ -100,28 +100,6 @@ const Card = ({
         </h2>
       </div>
     </div>
-  );
-};
-
-const AceternityIcon = () => {
-  return (
-    <svg
-      width="66"
-      height="65"
-      viewBox="0 0 66 65"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-10 w-10 text-black dark:text-white group-hover/canvas-card:text-white"
-    >
-      <path
-        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-        stroke="currentColor"
-        strokeWidth="15"
-        strokeMiterlimit="3.86874"
-        strokeLinecap="round"
-        style={{ mixBlendMode: "darken" }}
-      />
-    </svg>
   );
 };
 
