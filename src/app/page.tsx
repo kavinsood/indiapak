@@ -7,6 +7,7 @@ import { NumberTicker } from "@/components/magicui/number-ticker";
 import { ResumeCard } from "@/components/resume-card";
 import Carousel from "@/components/ui/carousel";
 import { DATA } from "@/data/resume";
+import Link from "next/link";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -28,7 +29,7 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="flex justify-start items-start">
+          <div className="flex justify-between items-start">
             <BlurFade delay={BLUR_FADE_DELAY}>
               <div className="text-left">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter">
@@ -46,6 +47,14 @@ export default function Page() {
                   </LineShadowText>
                 </div>
               </div>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 2}>
+              <Link 
+                href="/about" 
+                className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
+              >
+                About Us
+              </Link>
             </BlurFade>
           </div>
         </div>
