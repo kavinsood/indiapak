@@ -8,6 +8,7 @@ import { ResumeCard } from "@/components/resume-card";
 import Carousel from "@/components/ui/carousel";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import { HyperText } from "@/components/magicui/hyper-text";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -53,7 +54,9 @@ export default function Page() {
                 href="/about"
                 className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
               >
-                About
+                <HyperText className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2">
+                  About
+                </HyperText>
               </Link>
             </BlurFade>
           </div>
