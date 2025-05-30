@@ -55,7 +55,7 @@ export default function Navbar() {
                         )}
                         aria-label="Go back"
                       >
-                        <ArrowLeftIcon className="size-4" />
+                        <ArrowLeftIcon className="size-4 text-black dark:text-white" />
                       </button>
                     )}
                   </TooltipTrigger>
