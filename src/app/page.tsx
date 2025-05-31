@@ -6,9 +6,9 @@ import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { ResumeCard } from "@/components/resume-card";
 import Carousel from "@/components/ui/carousel";
+import { GlowEffectButton } from "@/components/ui/glow-effect-button";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { HyperText } from "@/components/magicui/hyper-text";
 import { NewsDashboard } from "@/components/news-dashboard";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -80,9 +80,9 @@ export default function Page() {
                 href="/about"
                 className="inline-block"
               >
-                <HyperText className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2 cursor-pointer">
-                  About
-                </HyperText>
+                <span className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2 cursor-pointer">
+                  about
+                </span>
               </Link>
             </BlurFade>
           </div>
@@ -98,9 +98,11 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Officially Released Documents</h2>
+            <h2 className="text-xl font-bold mb-4">Officially Released Documents</h2>
           </BlurFade>
-          {DATA.work.map((work, id) => (
+          {DATA.work
+            .filter((work) => work.showOnHomepage)
+            .map((work, id) => (
             <BlurFade
               key={work.company}
               delay={BLUR_FADE_DELAY * 6 + id * 0.05}
@@ -113,19 +115,24 @@ export default function Page() {
                 subtitle={work.title}
                 href={work.href}
                 badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
+                period={work.start}
                 description={work.description}
               />
             </BlurFade>
           ))}
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <div className="flex justify-end mt-4">
+              <GlowEffectButton />
+            </div>
+          </BlurFade>
         </div>
       </section>
       <section id="carousel" className="py-10">
         <div className="flex min-h-0 flex-col gap-y-8">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <h2 className="text-xl font-bold">Look at the war</h2>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 8}>
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <div className="flex justify-center">
               <Carousel slides={carouselSlides} />
             </div>
@@ -134,7 +141,7 @@ export default function Page() {
       </section>
       <section id="number-ticker-section" className="py-10">
         <div className="flex justify-center">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <BlurFade delay={BLUR_FADE_DELAY * 10}>
             <div className="flex items-center space-x-4">
               <p className="text-4xl font-bold">
                 <NumberTicker value={203} />
