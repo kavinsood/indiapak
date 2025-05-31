@@ -7,6 +7,7 @@ import {
   VoyagerSection, 
   InfoDrawer 
 } from "@/components/about";
+import AboutPageLayout from "./AboutPageLayout";
 import "./about.css";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -23,14 +24,16 @@ export default function AboutPage() {
 
   return (
     <>
-      <main className="main-content-container">
-        <HeroSection blurFadeDelay={BLUR_FADE_DELAY} />
-        <TeamSection 
-          blurFadeDelay={BLUR_FADE_DELAY} 
-          onInfoClick={handleInfoClick} 
-        />
-        <VoyagerSection blurFadeDelay={BLUR_FADE_DELAY} />
-      </main>
+      <AboutPageLayout>
+        <main className="main-content-container">
+          <HeroSection blurFadeDelay={BLUR_FADE_DELAY} />
+          <TeamSection 
+            blurFadeDelay={BLUR_FADE_DELAY} 
+            onInfoClick={handleInfoClick} 
+          />
+          <VoyagerSection blurFadeDelay={BLUR_FADE_DELAY} />
+        </main>
+      </AboutPageLayout>
 
       <InfoDrawer 
         open={drawerOpen} 
