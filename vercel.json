@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/perplexity/cached",
+      "schedule": "0 0 * * 1,4"
+    }
+  ]
+} 

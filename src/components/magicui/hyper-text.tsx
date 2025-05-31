@@ -133,16 +133,18 @@ export function HyperText({
       onMouseEnter={handleAnimationTrigger}
       {...props}
     >
-      <AnimatePresence>
-        {displayText.map((letter, index) => (
-          <motion.span
-            key={index}
-            className={letter === " " ? "w-3" : ""}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </AnimatePresence>
+      <span>
+        <AnimatePresence>
+          {displayText.map((letter, index) => (
+            <motion.span
+              key={index}
+              className={letter === " " ? "w-3" : ""}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </AnimatePresence>
+      </span>
     </MotionComponent>
   );
 }

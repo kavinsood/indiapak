@@ -48,19 +48,19 @@ export default function Navbar() {
                       </Link>
                     ) : (
                       <button
-                        onClick={() => router.back()}
+                        onClick={() => router.push("/")}
                         className={cn(
                           buttonVariants({ variant: "ghost", size: "icon" }),
                           "size-12"
                         )}
-                        aria-label="Go back"
+                        aria-label="Go home"
                       >
                         <ArrowLeftIcon className="size-4 text-black dark:text-white" />
                       </button>
                     )}
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>{isHomePage ? item.label : "Back"}</p>
+                    <p>{isHomePage ? item.label : "Home"}</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>

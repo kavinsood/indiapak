@@ -9,17 +9,43 @@ import Carousel from "@/components/ui/carousel";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { HyperText } from "@/components/magicui/hyper-text";
+import { NewsDashboard } from "@/components/news-dashboard";
 
 const BLUR_FADE_DELAY = 0.04;
 
 const carouselSlides = [
   {
     title: "Pahalgam Attacks",
-    button: "Learn More",
-    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
+    button: "Read Story",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Pahalgam_views_91.JPG/960px-Pahalgam_views_91.JPG"
   },
   {
-    title: "India retaliates",
+    title: "Pakistan Denies Involvement",
+    button: "Read Story",
+    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+  },
+  {
+    title: "India Retaliates: Strikes Terror Camp",
+    button: "Read Story",
+    src: "https://akm-img-a-in.tosshub.com/indiatoday/inline-images/Bahwalpur_pic_damage.png?VersionId=Nt17_09b3mYKtYmgoisIWhCbcRaJHTe9&size=750:*"
+  },
+  {
+    title: "Pakistan Downs Indian Drones, Vows Retaliation",
+    button: "Read Story",
+    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+  },
+  {
+    title: "Heavy Clashes Erupt Between Both Sides",
+    button: "Read Story",
+    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+  },
+  {
+    title: "US-Brokered Ceasefire Brings Conflict to End",
+    button: "Read Story",
+    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+  },
+  {
+    title: "Both Nations Claim Victory",
     button: "Read Story",
     src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
   }
@@ -52,9 +78,9 @@ export default function Page() {
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
               <Link
                 href="/about"
-                className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2"
+                className="inline-block"
               >
-                <HyperText className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2">
+                <HyperText className="text-sm font-semibold text-foreground hover:text-green-500 transition-colors duration-200 mt-2 cursor-pointer">
                   About
                 </HyperText>
               </Link>
@@ -62,15 +88,22 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section id="news-dashboard" className="py-10">
+        <div className="mx-auto w-full px-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 3}>
+            <NewsDashboard />
+          </BlurFade>
+        </div>
+      </section>
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">Officially Released Documents</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
               key={work.company}
-              delay={BLUR_FADE_DELAY * 4 + id * 0.05}
+              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
             >
               <ResumeCard
                 key={work.company}
@@ -89,10 +122,10 @@ export default function Page() {
       </section>
       <section id="carousel" className="py-10">
         <div className="flex min-h-0 flex-col gap-y-8">
-          <BlurFade delay={BLUR_FADE_DELAY * 6}>
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Look at the war</h2>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <div className="flex justify-center">
               <Carousel slides={carouselSlides} />
             </div>
@@ -101,7 +134,7 @@ export default function Page() {
       </section>
       <section id="number-ticker-section" className="py-10">
         <div className="flex justify-center">
-          <BlurFade delay={BLUR_FADE_DELAY * 8}>
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <div className="flex items-center space-x-4">
               <p className="text-4xl font-bold">
                 <NumberTicker value={203} />
