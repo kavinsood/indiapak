@@ -89,7 +89,7 @@ export function NewsDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Widget - People & Discussions */}
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
-          <Card className="overflow-hidden h-full">
+          <Card className="overflow-hidden h-full border-2 border-neutral-700">
             <div className="p-6 pb-3">
               <h3 className="text-lg font-semibold flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
@@ -100,7 +100,7 @@ export function NewsDashboard() {
               </p>
             </div>
             <div className="px-6 pb-6">
-              <ScrollArea className="h-[600px] rounded-md border bg-muted/20 p-4">
+              <ScrollArea className="h-[600px] rounded-md border border-neutral-700 bg-muted/20 p-4">
                 {loading ? (
                   <div className="space-y-3">
                     {[...Array(8)].map((_, i) => (
@@ -125,7 +125,7 @@ export function NewsDashboard() {
 
         {/* Right Widget - News Links */}
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <Card className="overflow-hidden h-full">
+          <Card className="overflow-hidden h-full border-2 border-neutral-700">
             <div className="p-6 pb-3">
               <h3 className="text-lg font-semibold flex items-center gap-2">
                 <Globe className="w-4 h-4" />
@@ -136,7 +136,7 @@ export function NewsDashboard() {
               </p>
             </div>
             <div className="px-6 pb-6">
-              <ScrollArea className="h-[600px] rounded-md border bg-muted/20">
+              <ScrollArea className="h-[600px] rounded-md border border-neutral-700 bg-muted/20">
                 {loading ? (
                   <div className="space-y-4 p-4">
                     {[...Array(5)].map((_, i) => (
