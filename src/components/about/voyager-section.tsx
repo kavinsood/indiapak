@@ -23,13 +23,12 @@ function YouTubeEmbed() {
     return () => observer.disconnect();
   }, []);
 
+  // Set the video to start at 182 seconds (3:02)
   // Only autoplay if in view, otherwise pause (autoplay=1 or 0)
   // Do NOT mute the video
   const baseSrc = "https://www.youtube.com/embed/fCB35lTiqT4";
-  // Conditionally add autoplay=1 only when inView is true.
-  // Otherwise, do not add autoplay parameter, or explicitly set autoplay=0 if needed.
-  // For simplicity and to ensure it stops when out of view, we'll reconstruct params.
-  const params = inView ? "autoplay=1" : "autoplay=0"; // Or simply "" if autoplay=0 is default
+  // Add start=182 to the params
+  const params = `start=182&autoplay=${inView ? "1" : "0"}`;
   const src = `${baseSrc}?${params}`;
 
   return (
@@ -56,6 +55,7 @@ export function VoyagerSection({ blurFadeDelay }: VoyagerSectionProps) {
             Autoplay YouTube video when in view using Intersection Observer.
             We append &autoplay=1 to the src when in view.
             The video is NOT muted when it starts.
+            The video starts at 182 seconds (3:02).
           */}
           <YouTubeEmbed />
         </BlurFade>
