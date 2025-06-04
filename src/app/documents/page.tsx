@@ -6,7 +6,19 @@ import { DATA } from "@/data/resume";
 
 const BLUR_FADE_DELAY = 0.04;
 
+// Helper function to sort documents by date
+const sortDocumentsByDate = (documents: typeof DATA.work) => {
+  return [...documents].sort((a, b) => {
+    const dateA = new Date(a.start);
+    const dateB = new Date(b.start);
+    return dateA.getTime() - dateB.getTime(); // Ascending order (oldest first)
+  });
+};
+
 export default function DocumentsPage() {
+  // Sort documents by date
+  const sortedDocuments = sortDocumentsByDate(DATA.work);
+  
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10 max-w-4xl mx-auto px-4 py-8">
       <section id="header">
@@ -26,7 +38,7 @@ export default function DocumentsPage() {
         </BlurFade>
         
         <div className="space-y-4">
-          {DATA.work.map((work, id) => (
+          {sortedDocuments.map((work, id) => (
             <BlurFade
               key={work.company}
               delay={BLUR_FADE_DELAY * 3 + id * 0.05}

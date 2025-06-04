@@ -8,14 +8,26 @@ interface DocumentsSectionProps {
   blurFadeDelay: number;
 }
 
+// Helper function to sort documents by date
+const sortDocumentsByDate = (documents: typeof DATA.work) => {
+  return [...documents].sort((a, b) => {
+    const dateA = new Date(a.start);
+    const dateB = new Date(b.start);
+    return dateA.getTime() - dateB.getTime(); // Ascending order (oldest first)
+  });
+};
+
 export function DocumentsSection({ blurFadeDelay }: DocumentsSectionProps) {
+  // Sort documents by date before filtering
+  const sortedDocuments = sortDocumentsByDate(DATA.work);
+  
   return (
     <section id="work">
       <div className="flex min-h-0 flex-col gap-y-3">
         <BlurFade delay={blurFadeDelay * 5}>
           <h2 className="text-xl font-bold mb-4">Officially Released Documents</h2>
         </BlurFade>
-        {DATA.work
+        {sortedDocuments
           .filter((work) => work.showOnHomepage)
           .map((work, id) => (
           <BlurFade
