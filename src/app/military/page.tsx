@@ -12,7 +12,7 @@ export default function MilitaryOperationsPage() {
   return (
     <main className="flex flex-col h-screen overflow-hidden">
       {/* Upper Section - Operation Sindoor with Meteors */}
-      <section className="relative flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden bg-white dark:bg-black">
+      <section className="relative flex-1 w-full flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden bg-background">
         <Meteors 
           number={50} 
           className="absolute inset-0 z-0" 
