@@ -6,8 +6,11 @@ import Image from "next/image";
 
 // Dynamically import CanvasRevealEffect with no SSR
 const CanvasRevealEffect = dynamic(
-  () => import("@/components/ui/canvas-reveal-effect").then(mod => ({ default: mod.CanvasRevealEffect })),
-  { ssr: false }
+  () =>
+    import("@/components/ui/canvas-reveal-effect").then((mod) => ({
+      default: mod.CanvasRevealEffect,
+    })),
+  { ssr: false },
 );
 
 const AboutCards = () => {
@@ -19,16 +22,18 @@ const AboutCards = () => {
 
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center bg-background w-full gap-8 mx-auto max-w-6xl">
-      <Card title="Vagdev Tirunagari" icon={<Image src="/user.png" alt="Vagdev Tirunagari" width={40} height={40} className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100" />}>
-        {isMounted && (
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            containerClassName="bg-emerald-900"
+      <Card
+        title="Perplexity Sonar and 2.5 billion people"
+        icon={
+          <Image
+            src="/user.png"
+            alt="Sonar and Supergrok"
+            width={40}
+            height={40}
+            className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100"
           />
-        )}
-      </Card>
-      
-      <Card title="Sonar, Supergrok and 2.5 billion people" icon={<Image src="/user.png" alt="Sonar and Supergrok" width={40} height={40} className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100" />}>
+        }
+      >
         {isMounted && (
           <>
             <CanvasRevealEffect
@@ -45,8 +50,19 @@ const AboutCards = () => {
           </>
         )}
       </Card>
-      
-      <Card title="Kavin Sood" icon={<Image src="/user.png" alt="Kavin Sood" width={40} height={40} className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100" />}>
+
+      <Card
+        title="Kavin Sood"
+        icon={
+          <Image
+            src="/user.png"
+            alt="Kavin Sood"
+            width={40}
+            height={40}
+            className="rounded-full object-cover filter dark:invert dark:brightness-0 dark:contrast-100"
+          />
+        }
+      >
         {isMounted && (
           <CanvasRevealEffect
             animationSpeed={3}
