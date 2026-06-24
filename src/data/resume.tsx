@@ -11,7 +11,7 @@ export const DATA = {
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
   summary:
     "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
-  avatarUrl: "/me.png",
+  avatarUrl: "/me.avif",
   skills: [
     "React",
     "Next.js",
@@ -28,7 +28,6 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/military", icon: "/jet.png", label: "Military Operations" },
-    { href: "/nuclear", icon: "/radioactive.png", label: "Nuclear" },
     { href: "/about", icon: "/user.png", label: "About" },
   ],
   contact: {
@@ -262,7 +261,7 @@ export const DATA = {
       school: "Wilfrid Laurier University",
       href: "https://wlu.ca",
       degree: "Bachelor's Degree of Business Administration (BBA)",
-      logoUrl: "/laurier.png",
+      logoUrl: "/laurier.avif",
       start: "2016",
       end: "2021",
     },
@@ -270,7 +269,7 @@ export const DATA = {
       school: "International Baccalaureate",
       href: "https://ibo.org",
       degree: "IB Diploma",
-      logoUrl: "/ib.png",
+      logoUrl: "/ib.avif",
       start: "2012",
       end: "2016",
     },
